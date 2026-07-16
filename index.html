@@ -5,95 +5,97 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
+            --blau-fort: #0f172a;
             --blau-fluix: #89CFF0;
-            --blau-fort: #003366;
             --lila: #9370DB;
-            --fons-galaxia: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
         body {
             font-family: 'Open Sans', sans-serif;
-            background: var(--fons-galaxia);
             margin: 0;
             display: flex;
-            height: 100vh;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             color: white;
         }
 
-        /* Barra lateral */
+        /* Barra Lateral */
         .sidebar {
-            width: 80px;
-            background: rgba(0, 51, 102, 0.3);
-            backdrop-filter: blur(10px);
+            width: 260px;
+            background: var(--blau-fort);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding-top: 20px;
-            border-right: 1px solid rgba(137, 207, 240, 0.2);
+            padding: 20px;
         }
 
-        .tool-icon {
-            width: 40px;
-            margin-bottom: 20px;
-            fill: var(--blau-fluix);
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
             cursor: pointer;
             transition: 0.3s;
         }
 
-        .tool-icon:hover { fill: var(--lila); }
+        .menu-item:hover { background: rgba(147, 112, 219, 0.2); }
 
-        /* Contingut principal */
-        .main {
+        .menu-item svg { width: 24px; margin-right: 15px; fill: var(--blau-fluix); }
+
+        /* Contingut Principal */
+        .main-content {
             flex-grow: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 40px;
+            overflow-y: auto;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            padding: 40px;
-            border-radius: 25px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            width: 400px;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
         }
 
         textarea {
             width: 100%;
-            height: 100px;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0,0,0,0.2);
             border: 1px solid var(--lila);
             color: white;
-            padding: 10px;
-            border-radius: 10px;
-            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <nav class="sidebar">
-        <!-- SVG Tool 1: Home -->
-        <svg class="tool-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-        <!-- SVG Tool 2: Settings -->
-        <svg class="tool-icon" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
-    </nav>
+    <aside class="sidebar">
+        <h2 style="font-size: 1.2rem; margin-bottom: 30px;">Espai Memòria</h2>
+        <div class="menu-item">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span>Inici</span>
+        </div>
+        <div class="menu-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            <span>Arxiu de Perfils</span>
+        </div>
+    </aside>
 
-    <main class="main">
+    <main class="main-content">
+        <h1>Benvingut al Diari</h1>
         <div class="card">
-            <h2>Diari d'Ànim</h2>
-            <p>Com et sents avui?</p>
-            <textarea id="note" placeholder="Escriu aquí..."></textarea>
-            <button onclick="saveMood()" style="margin-top:10px; cursor:pointer;">Desar</button>
+            <h3>Com et sents avui?</h3>
+            <textarea id="moodNote" rows="4"></textarea>
+            <button onclick="saveNote()" style="margin-top:15px; padding:10px 20px; background:var(--lila); border:none; color:white; border-radius:5px; cursor:pointer;">Desar nota</button>
         </div>
     </main>
 
     <script>
-        function saveMood() {
-            const note = document.getElementById('note').value;
-            console.log("Nota desada:", note);
-            alert("Registre desat al diari galàctic!");
+        function saveNote() {
+            const text = document.getElementById('moodNote').value;
+            alert("Nota desada al teu diari personal!");
+            console.log("Dada desada:", text);
         }
     </script>
 </body>
